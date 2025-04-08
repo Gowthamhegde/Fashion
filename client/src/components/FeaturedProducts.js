@@ -2,6 +2,7 @@ import React from 'react';
 import { Box, Grid, Typography, Card, CardMedia, CardContent, Button } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import { useCart } from '../context/CartContext';
+import { Link } from 'react-router-dom';
 
 const StyledCard = styled(Card)(({ theme }) => ({
   height: '100%',
@@ -55,6 +56,19 @@ const ProductImage = styled('div')(({ theme }) => ({
   },
 }));
 
+const SeeMoreButton = styled(Button)(({ theme }) => ({
+  marginTop: theme.spacing(4),
+  padding: theme.spacing(1.5, 4),
+  fontSize: '1.1rem',
+  textTransform: 'none',
+  borderRadius: '0',
+  backgroundColor: '#000',
+  color: '#fff',
+  '&:hover': {
+    backgroundColor: '#333',
+  },
+}));
+
 const featuredProducts = [
   {
     id: 1,
@@ -94,18 +108,26 @@ const FeaturedProducts = () => {
   const { addToCart } = useCart();
   return (
     <Box sx={{ py: 8 }}>
-      <Typography 
-        variant="h2" 
-        component="h2" 
-        sx={{ 
-          mb: 4, 
-          fontWeight: 'bold',
-          fontSize: { xs: '2rem', sm: '3rem', md: '3.75rem' },
-          textAlign: { xs: 'center', md: 'left' }
-        }}
-      >
-        Featured Products
-      </Typography>
+      <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 4 }}>
+        <Typography 
+          variant="h2" 
+          component="h2" 
+          sx={{ 
+            fontWeight: 'bold',
+            fontSize: { xs: '2rem', sm: '3rem', md: '3.75rem' },
+            textAlign: { xs: 'center', md: 'left' }
+          }}
+        >
+          Featured Products
+        </Typography>
+        <SeeMoreButton
+          component={Link}
+          to="/products"
+          variant="contained"
+        >
+          See More
+        </SeeMoreButton>
+      </Box>
       <Grid container spacing={{ xs: 2, sm: 3, md: 4 }}>
         {featuredProducts.map((product) => (
           <Grid item key={product.id} xs={12} sm={6} md={4} lg={3}>

@@ -46,9 +46,12 @@ const MarqueeBanner = () => {
         overflow: 'hidden',
         whiteSpace: 'nowrap',
         position: 'relative',
-        padding: '8px 0',
+        padding: '6px 0',
         borderBottom: '1px solid #eee',
-        marginTop: '63px',
+        marginTop: '64px',
+        height: '32px',
+        display: 'flex',
+        alignItems: 'center',
         '&:hover': {
           '& > div': {
             animationPlayState: 'paused'

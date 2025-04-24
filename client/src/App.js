@@ -30,12 +30,14 @@ function App() {
             flexDirection: 'column'
           }}>
             <Navbar />
-            <Box sx={{ mt: '64px' }}>
-              <MarqueeBanner />
-            </Box>
+            <MarqueeBanner />
             <Box component="main" sx={{ 
               flex: 1,
-              mt: 0 // Remove top padding since MarqueeBanner handles the spacing
+              display: 'flex',
+              flexDirection: 'column',
+              '& > *:first-child': {
+                marginTop: 0
+              }
             }}>
               <Routes>
                 <Route path="/" element={<Home />} />

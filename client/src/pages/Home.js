@@ -18,11 +18,15 @@ import FeaturedProducts from '../components/FeaturedProducts';
 const NeonSign = styled('div')(({ theme }) => ({
   width: '100%',
   textAlign: 'center',
-  marginBottom: '0',
+  padding: '1rem 0',
+  backgroundColor: '#fff',
+  position: 'relative',
+  zIndex: 2,
   '& img': {
-    maxWidth: '400px',
+    maxWidth: '300px',
     width: '90%',
     height: 'auto',
+    margin: 0,
   },
 }));
 
@@ -31,6 +35,7 @@ const ImageContainer = styled(Box)(({ theme }) => ({
   width: '100%',
   height: 'calc(100vh - 64px)',
   overflow: 'hidden',
+  marginTop: '-4rem',
   '& img': {
     width: '100%',
     height: '100%',
@@ -150,7 +155,7 @@ const blogPosts = [
 
 const Home = () => {
   return (
-    <Box sx={{ bgcolor: '#fff' }}>
+    <Box sx={{ bgcolor: '#fff', overflow: 'hidden' }}>
       <Container maxWidth="xl" disableGutters>
         <NeonSign>
           <img src="/neon-sign.svg" alt="What The Hex" />
